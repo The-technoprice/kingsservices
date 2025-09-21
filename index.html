@@ -227,6 +227,82 @@
             color: #D6B380;
         }
 
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .hamburger-line {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .nav-links.mobile-open {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: #696C6D;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-links.mobile-open li {
+            margin: 10px 0;
+        }
+
+        .nav-links.mobile-open a {
+            display: block;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links.mobile-open a:hover {
+            background-color: #D6B380;
+            color: white;
+        }
+
         .section {
             padding: 100px 0;
         }
@@ -402,6 +478,10 @@
                 display: none;
             }
             
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
             .section {
                 padding: 40px 0;
             }
@@ -496,6 +576,10 @@
             
             .nav-links {
                 display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
             }
             
             .section {
@@ -786,6 +870,11 @@
                     <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
+                <button class="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
             </div>
         </div>
     </nav>
@@ -1299,6 +1388,42 @@ I got this quote from your website and would like to proceed with booking.`;
 
         // Set minimum date to today
         document.getElementById('eventDate').min = new Date().toISOString().split('T')[0];
+
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            const isOpen = navLinks.classList.contains('mobile-open');
+            
+            if (isOpen) {
+                navLinks.classList.remove('mobile-open');
+                mobileMenuBtn.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            } else {
+                navLinks.classList.add('mobile-open');
+                mobileMenuBtn.classList.add('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('mobile-open');
+                mobileMenuBtn.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.nav-content')) {
+                navLinks.classList.remove('mobile-open');
+                mobileMenuBtn.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
     </script>
 </body>
 </html>
