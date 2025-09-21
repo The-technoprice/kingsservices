@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kings Services - We Crown Your Event | Professional Sound Rental in Nairobi</title>
+    <meta name="description" content="Professional sound rental services in Nairobi. Premium equipment for events 20-2500 people. Setup, sound engineer & wireless mics included.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #d4af37, #f4e199, #b8860b);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,0 Q250,50 500,0 T1000,0 L1000,100 L0,100 Z" fill="%23ffffff" opacity="0.1"/></svg>') repeat-x;
+            animation: wave 20s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: translateX(0px); }
+            50% { transform: translateX(-50px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text {
+            color: white;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #fff, #f4e199);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-style: italic;
+            opacity: 0.95;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #fff, #f8f8f8);
+            color: #d4af37;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .pricing-calculator {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .calc-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .calc-header h2 {
+            color: #d4af37;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+
+        .price-display {
+            background: linear-gradient(135deg, #d4af37, #f4e199);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .price-amount {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .package-details {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            border-left: 5px solid #d4af37;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            width: 60px;
+            height: 60px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+
+        .equipment-section {
+            background: #f8f9fa;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .equipment-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .equipment-item:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            color: white;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+
+        .book-now-btn {
+            background: linear-gradient(45deg, #d4af37, #b8860b);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .book-now-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .pricing-tiers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .tier-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .tier-card.premium {
+            border: 3px solid #d4af37;
+            transform: scale(1.05);
+        }
+
+        .tier-card.premium::before {
+            content: 'POPULAR';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: #d4af37;
+            color: white;
+            padding: 5px 40px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transform: rotate(45deg);
+        }
+
+        .tier-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .tier-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .tier-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tier-features li:last-child {
+            border-bottom: none;
+        }
+
+        .tier-features li i {
+            color: #d4af37;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <svg class="nav-logo" viewBox="0 0 400 400">
+                    <!-- Crown with sound waves -->
+                    <circle cx="200" cy="80" r="25" fill="#d4af37"/>
+                    <circle cx="140" cy="100" r="18" fill="#d4af37"/>
+                    <circle cx="260" cy="100" r="18" fill="#d4af37"/>
+                    <circle cx="170" cy="90" r="15" fill="#d4af37"/>
+                    <circle cx="230" cy="90" r="15" fill="#d4af37"/>
+                    <path d="M100 120 L140 80 L170 110 L200 70 L230 110 L260 80 L300 120 L280 180 L120 180 Z" fill="#d4af37"/>
+                    <!-- Sound waves -->
+                    <g fill="white" opacity="0.9">
+                        <rect x="190" y="200" width="4" height="40"/>
+                        <rect x="180" y="210" width="4" height="20"/>
+                        <rect x="170" y="195" width="4" height="50"/>
+                        <rect x="160" y="205" width="4" height="30"/>
+                        <rect x="150" y="190" width="4" height="60"/>
+                        <rect x="140" y="200" width="4" height="40"/>
+                        <rect x="130" y="210" width="4" height="20"/>
+                        
+                        <rect x="210" y="200" width="4" height="40"/>
+                        <rect x="220" y="210" width="4" height="20"/>
+                        <rect x="230" y="195" width="4" height="50"/>
+                        <rect x="240" y="205" width="4" height="30"/>
+                        <rect x="250" y="190" width="4" height="60"/>
+                        <rect x="260" y="200" width="4" height="40"/>
+                        <rect x="270" y="210" width="4" height="20"/>
+                    </g>
+                </svg>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#equipment">Equipment</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <svg class="logo" viewBox="0 0 400 400">
+                        <!-- Crown with sound waves -->
+                        <circle cx="200" cy="80" r="25" fill="#d4af37"/>
+                        <circle cx="140" cy="100" r="18" fill="#d4af37"/>
+                        <circle cx="260" cy="100" r="18" fill="#d4af37"/>
+                        <circle cx="170" cy="90" r="15" fill="#d4af37"/>
+                        <circle cx="230" cy="90" r="15" fill="#d4af37"/>
+                        <path d="M100 120 L140 80 L170 110 L200 70 L230 110 L260 80 L300 120 L280 180 L120 180 Z" fill="#d4af37"/>
+                        <!-- Sound waves -->
+                        <g fill="white" opacity="0.9">
+                            <rect x="190" y="200" width="4" height="40"/>
+                            <rect x="180" y="210" width="4" height="20"/>
+                            <rect x="170" y="195" width="4" height="50"/>
+                            <rect x="160" y="205" width="4" height="30"/>
+                            <rect x="150" y="190" width="4" height="60"/>
+                            <rect x="140" y="200" width="4" height="40"/>
+                            <rect x="130" y="210" width="4" height="20"/>
+                            
+                            <rect x="210" y="200" width="4" height="40"/>
+                            <rect x="220" y="210" width="4" height="20"/>
+                            <rect x="230" y="195" width="4" height="50"/>
+                            <rect x="240" y="205" width="4" height="30"/>
+                            <rect x="250" y="190" width="4" height="60"/>
+                            <rect x="260" y="200" width="4" height="40"/>
+                            <rect x="270" y="210" width="4" height="20"/>
+                        </g>
+                    </svg>
+                    <h1>Kings Services</h1>
+                    <p class="tagline">We Crown Your Event</p>
+                    <p class="hero-description">Professional sound rental services in Nairobi. From intimate gatherings of 20 to grand events of 2500 people, we provide premium audio equipment with expert setup and sound engineering.</p>
+                    <a href="#pricing" class="cta-button">Get Instant Quote</a>
+                </div>
+                
+                <div class="pricing-calculator">
+                    <div class="calc-header">
+                        <h2><i class="fas fa-calculator"></i> Instant Price Quote</h2>
+                        <p>Get your customized pricing in seconds</p>
+                    </div>
+                    
+                    <form id="priceCalculator">
+                        <div class="form-group">
+                            <label for="guestCount">Number of Guests</label>
+                            <input type="number" id="guestCount" min="20" max="2500" placeholder="Enter number of guests" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="eventType">Event Type</label>
+                            <select id="eventType" required>
+                                <option value="">Select event type</option>
+                                <option value="indoor">Indoor Event</option>
+                                <option value="outdoor">Outdoor Event</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="packageType">Package Type</label>
+                            <select id="packageType" required>
+                                <option value="">Select package</option>
+                                <option value="basic">Basic Package</option>
+                                <option value="premium">Premium Package</option>
+                                <option value="deluxe">Deluxe Package</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="eventDate">Event Date</label>
+                            <input type="date" id="eventDate" required>
+                        </div>
+                        
+                        <button type="submit" class="book-now-btn">
+                            <i class="fas fa-crown"></i> Calculate Price
+                        </button>
+                    </form>
+                    
+                    <div id="priceResult" class="price-display" style="display: none;">
+                        <div class="price-amount" id="finalPrice">KSH 0</div>
+                        <p>Total Cost (Full Day Service)</p>
+                        <div class="package-details" id="packageIncludes"></div>
+                        <button type="button" class="book-now-btn" onclick="bookNow()">
+                            <i class="fas fa-phone"></i> Book Now - Call Us
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Royal Services</h2>
+                <p>Complete audio solutions for every occasion</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Premium Equipment Rental</h3>
+                    <p>Professional-grade EV, FBT, and DB Technologies speakers with crystal-clear sound quality for any event size.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Complete Setup & Breakdown</h3>
+                    <p>Our expert team handles all equipment setup and breakdown, ensuring your event runs smoothly from start to finish.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Professional Sound Engineer</h3>
+                    <p>Dedicated sound engineer to manage audio throughout your event, ensuring perfect sound quality at all times.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3>Wireless Microphones</h3>
+                    <p>Multiple wireless microphone options for speeches, presentations, and performances.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Musical Instruments</h3>
+                    <p>Guitar combos, bass guitar, keyboards, and complete drum set for live performances.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Flexible Booking</h3>
+                    <p>Easy booking process with 60% deposit to secure your date and 40% completion by mid-event.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment Section -->
+    <section class="section equipment-section" id="equipment">
+        <div class="container">
+            <div class="section-header">
+                <h2>Professional Equipment</h2>
+                <p>Industry-leading brands and cutting-edge technology</p>
+            </div>
+            
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <h4><i class="fas fa-volume-up"></i> Speakers</h4>
+                    <p>19 Professional Speakers<br>EV, FBT, DB Technologies<br>Active & Passive Options</p>
+                </div>
+                
+                <div class="equipment-item">
+                    <h4><i class="fas fa-broadcast-tower"></i> Subwoofers</h4>
+                    <p>2 Powerful Subwoofers<br>Deep Bass Response<br>Perfect for Music Events</p>
+                </div>
+                
+                <div class="equipment-item">
+                    <h4><i class="fas fa-sliders-h"></i> Mixers</h4>
+                    <p>3 Professional Mixers<br>Allen Heath & MG316<br>Plus 1 Powered Mixer</p>
+                </div>
+                
+                <div class="equipment-item">
+                    <h4><i class="fas fa-eye"></i> Monitors</h4>
+                    <p>2 Stage Monitors<br>Clear Audio Feedback<br>For Performers</p>
+                </div>
+                
+                <div class="equipment-item">
+                    <h4><i class="fas fa-guitar"></i> Instruments</h4>
+                    <p>Solo Guitar & Bass<br>Complete Drum Set<br>2 Professional Keyboards</p>
+                </div>
+                
+                <div class="equipment-item">
+                    <h4><i class="fas fa-microphone-alt"></i> Audio Cables</h4>
+                    <p>3 Snake Cables<br>50 Meters Each<br>Premium Connectivity</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pricing Packages</h2>
+                <p>Choose the perfect package for your event</p>
+            </div>
+            
+            <div class="pricing-tiers">
+                <div class="tier-card">
+                    <div class="tier-name">Basic Package</div>
+                    <div class="tier-features">
+                        <li><i class="fas fa-check"></i> Essential sound equipment</li>
+                        <li><i class="fas fa-check"></i> Basic setup & breakdown</li>
+                        <li><i class="fas fa-check"></i> 2 wireless microphones</li>
+                        <li><i class="fas fa-check"></i> Standard mixing console</li>
+                        <li><i class="fas fa-check"></i> Perfect for indoor events</li>
+                    </div>
+                </div>
+                
+                <div class="tier-card premium">
+                    <div class="tier-name">Premium Package</div>
+                    <div class="tier-features">
+                        <li><i class="fas fa-check"></i> Full sound system</li>
+                        <li><i class="fas fa-check"></i> Professional setup & breakdown</li>
+                        <li><i class="fas fa-check"></i> 4 wireless microphones</li>
+                        <li><i class="fas fa-check"></i> Allen Heath mixer</li>
+                        <li><i class="fas fa-check"></i> Stage monitors included</li>
+                        <li><i class="fas fa-check"></i> Basic sound engineer</li>
+                    </div>
+                </div>
+                
+                <div class="tier-card">
+                    <div class="tier-name">Deluxe Package</div>
+                    <div class="tier-features">
+                        <li><i class="fas fa-check"></i> Complete premium system</li>
+                        <li><i class="fas fa-check"></i> Full professional setup</li>
+                        <li><i class="fas fa-check"></i> Unlimited wireless mics</li>
+                        <li><i class="fas fa-check"></i> All mixers & subwoofers</li>
+                        <li><i class="fas fa-check"></i> Musical instruments included</li>
+                        <li><i class="fas fa-check"></i> Dedicated sound engineer</li>
+                        <li><i class="fas fa-check"></i> Perfect for large events</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Ready to crown your event? Contact us today!</p>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Location</h3>
+                    <p>Buru Buru<br>Nairobi, Kenya</p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p>+254 XXX XXX XXX<br>Available 24/7</p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>info@kingsservices.co.ke<br>Quick Response Guaranteed</p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Service Hours</h3>
+                    <p>Events: 24/7<br>Office: 8AM - 6PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Kings Services. We Crown Your Event. All rights reserved.</p>
+            <p>Professional Sound Rental Services in Nairobi, Kenya</p>
+        </div>
+    </footer>
+
+    <script>
+        // Pricing Calculator Logic
+        const priceCalculator = document.getElementById('priceCalculator');
+        const priceResult = document.getElementById('priceResult');
+        const finalPrice = document.getElementById('finalPrice');
+        const packageIncludes = document.getElementById('packageIncludes');
+
+        // Base prices for different guest counts
+        const basePrices = {
+            20: 6000,
+            200: 15000,
+            500: 22000,
+            1000: 35000,
+            2500: 50000 // Estimated for largest events
+        };
+
+        // Package multipliers
+        const packageMultipliers = {
+            basic: 1.0,
+            premium: 1.4,
+            deluxe: 1.8
+        };
+
+        // Indoor vs Outdoor multipliers
+        const eventTypeMultipliers = {
+            indoor: 1.0,
+            outdoor: 1.3 // Outdoor events require more equipment and setup
+        };
+
+        // Package inclusions
+        const packageInclusions = {
+            basic: [
+                "Essential sound equipment",
+                "2 wireless microphones",
+                "Basic mixing console",
+                "Standard setup & breakdown",
+                "Equipment operation guide"
+            ],
+            premium: [
+                "Full professional sound system",
+                "4 wireless microphones",
+                "Allen Heath professional mixer",
+                "Stage monitors included",
