@@ -943,8 +943,26 @@
 
         // Book now function
         function bookNow() {
-            const phone = '+254700123456'; // Replace with actual business phone
-            const message = 'Hi Kings Services, I would like to book your sound rental services for my event. I got a quote from your website.';
+            const phone = '+254791276880'; // Actual business phone number
+            const guests = document.getElementById('guestCount').value;
+            const eventType = document.getElementById('eventType').value;
+            const packageType = document.getElementById('packageType').value;
+            const venue = document.getElementById('specificVenue').value;
+            const eventDate = document.getElementById('eventDate').value;
+            const price = document.getElementById('finalPrice').textContent;
+            
+            const message = `Hi Kings Services, I would like to book your sound rental services for my event. 
+
+Event Details:
+- Guests: ${guests}
+- Type: ${eventType}
+- Package: ${packageType}
+- Venue: ${venue}
+- Date: ${eventDate}
+- Quoted Price: ${price}
+
+I got this quote from your website and would like to proceed with booking.`;
+            
             const whatsappUrl = `https://wa.me/${phone.replace('+', '')}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
