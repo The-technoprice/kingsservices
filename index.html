@@ -21,7 +21,7 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, #d4af37, #f4e199, #b8860b);
+            background: linear-gradient(135deg, #D6B380, #e8d4a6, #c4a066);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -65,8 +65,8 @@
         }
 
         .logo {
-            width: 100%;
-            height: Auto;
+            width: 120px;
+            height: 120px;
             margin-bottom: 30px;
             filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
             animation: float 6s ease-in-out infinite;
@@ -104,7 +104,7 @@
         .cta-button {
             display: inline-block;
             background: linear-gradient(45deg, #fff, #f8f8f8);
-            color: #d4af37;
+            color: #D6B380;
             padding: 18px 40px;
             border: none;
             border-radius: 50px;
@@ -135,7 +135,7 @@
         }
 
         .calc-header h2 {
-            color: #d4af37;
+            color: #D6B380;
             font-size: 2rem;
             margin-bottom: 10px;
         }
@@ -162,11 +162,11 @@
 
         .form-group input:focus, .form-group select:focus {
             outline: none;
-            border-color: #d4af37;
+            border-color: #D6B380;
         }
 
         .price-display {
-            background: linear-gradient(135deg, #d4af37, #f4e199);
+            background: linear-gradient(135deg, #D6B380, #e8d4a6);
             color: white;
             padding: 30px;
             border-radius: 15px;
@@ -185,17 +185,17 @@
             padding: 20px;
             background: #f9f9f9;
             border-radius: 10px;
-            border-left: 5px solid #d4af37;
+            border-left: 5px solid #D6B380;
         }
 
         .nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(148,148,149,1.000);
+            background: #696C6D;
             backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: 5px 0;
+            padding: 15px 0;
             transition: all 0.3s ease;
         }
 
@@ -206,8 +206,8 @@
         }
 
         .nav-logo {
-            width: 35px;
-            height: 35px;
+            width: 60px;
+            height: 60px;
         }
 
         .nav-links {
@@ -218,13 +218,13 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #333;
+            color: white;
             font-weight: 600;
             transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: #d4af37;
+            color: #D6B380;
         }
 
         .section {
@@ -271,7 +271,7 @@
 
         .service-icon {
             font-size: 3rem;
-            color: #d4af37;
+            color: #D6B380;
             margin-bottom: 20px;
         }
 
@@ -298,7 +298,7 @@
         }
 
         .contact-section {
-            background: linear-gradient(135deg, #d4af37, #b8860b);
+            background: linear-gradient(135deg, #D6B380, #c4a066);
             color: white;
         }
 
@@ -329,14 +329,52 @@
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 30px;
             }
             
             .hero h1 {
                 font-size: 2.5rem;
             }
             
+            .hero {
+                padding: 120px 0 50px 0;
+            }
+            
+            .pricing-calculator {
+                padding: 30px 20px;
+                margin-top: 0;
+            }
+            
             .nav-links {
                 display: none;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .equipment-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+            }
+            
+            .pricing-tiers {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .contact-info {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 30px;
+            }
+            
+            .container {
+                padding: 0 15px;
             }
         }
 
@@ -381,7 +419,7 @@
         }
 
         .tier-card.premium {
-            border: 3px solid #d4af37;
+            border: 3px solid #D6B380;
             transform: scale(1.05);
         }
 
@@ -390,7 +428,7 @@
             position: absolute;
             top: 20px;
             right: -30px;
-            background: #d4af37;
+            background: #D6B380;
             color: white;
             padding: 5px 40px;
             font-size: 0.8rem;
@@ -420,7 +458,7 @@
         }
 
         .tier-features li i {
-            color: #d4af37;
+            color: #D6B380;
             margin-right: 10px;
         }
     </style>
@@ -430,16 +468,15 @@
     <nav class="nav">
         <div class="container">
             <div class="nav-content">
- <img src="LoGo@.svg"  width="80"  height="80" alt="Kings Services">
-                <!--<svg class="nav-logo" viewBox="0 0 400 400">
-                    <!-- Crown with sound waves --
+                <svg class="nav-logo" viewBox="0 0 400 400">
+                    <!-- Crown with sound waves -->
                     <circle cx="200" cy="80" r="25" fill="#d4af37"/>
                     <circle cx="140" cy="100" r="18" fill="#d4af37"/>
                     <circle cx="260" cy="100" r="18" fill="#d4af37"/>
                     <circle cx="170" cy="90" r="15" fill="#d4af37"/>
                     <circle cx="230" cy="90" r="15" fill="#d4af37"/>
                     <path d="M100 120 L140 80 L170 110 L200 70 L230 110 L260 80 L300 120 L280 180 L120 180 Z" fill="#d4af37"/>
-                    <!-- Sound waves --
+                    <!-- Sound waves -->
                     <g fill="white" opacity="0.9">
                         <rect x="190" y="200" width="4" height="40"/>
                         <rect x="180" y="210" width="4" height="20"/>
@@ -457,7 +494,7 @@
                         <rect x="260" y="200" width="4" height="40"/>
                         <rect x="270" y="210" width="4" height="20"/>
                     </g>
-                </svg>-->
+                </svg>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
@@ -536,6 +573,30 @@
                                 <option value="premium">Premium Package</option>
                                 <option value="deluxe">Deluxe Package</option>
                             </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="eventLocation">Event Location (Town)</label>
+                            <select id="eventLocation" required>
+                                <option value="">Select town/area</option>
+                                <option value="nairobi-cbd">Nairobi CBD</option>
+                                <option value="westlands">Westlands</option>
+                                <option value="karen">Karen</option>
+                                <option value="kiambu">Kiambu</option>
+                                <option value="thika">Thika</option>
+                                <option value="machakos">Machakos</option>
+                                <option value="limuru">Limuru</option>
+                                <option value="kikuyu">Kikuyu</option>
+                                <option value="ruiru">Ruiru</option>
+                                <option value="kitengela">Kitengela</option>
+                                <option value="athi-river">Athi River</option>
+                                <option value="other">Other (Call for Quote)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="specificVenue">Specific Venue/Ground</label>
+                            <input type="text" id="specificVenue" placeholder="e.g. KICC, Safari Park Hotel, or specific ground name" required>
                         </div>
                         
                         <div class="form-group">
@@ -733,7 +794,7 @@
                         <i class="fas fa-phone"></i>
                     </div>
                     <h3>Call Us</h3>
-                    <p>+254 XXX XXX XXX<br>Available 24/7</p>
+                    <p>+254 791 276 880<br>Available 24/7</p>
                 </div>
                 
                 <div class="contact-item">
@@ -806,90 +867,3 @@
                 "4 wireless microphones",
                 "Allen Heath professional mixer",
                 "Stage monitors included",
-                "Professional sound engineer",
-                "Complete setup & breakdown",
-                "Technical support throughout event"
-            ],
-            deluxe: [
-                "Premium sound system with subwoofers",
-                "8 wireless microphones",
-                "Professional mixing console",
-                "Stage monitors & floor monitors",
-                "Dedicated sound engineer",
-                "Live audio recording option",
-                "Lighting effects coordination",
-                "Complete event audio management",
-                "Priority booking & support"
-            ]
-        };
-
-        // Function to calculate pricing
-        function calculatePrice() {
-            const guestCount = document.getElementById('guestCount').value;
-            const eventType = document.getElementById('eventType').value;
-            const packageType = document.getElementById('packageType').value;
-            
-            if (!guestCount || !eventType || !packageType) {
-                return;
-            }
-
-            // Find base price based on guest count
-            let basePrice = 0;
-            const guests = parseInt(guestCount);
-            
-            for (let threshold of Object.keys(basePricing).map(Number).sort((a, b) => a - b)) {
-                if (guests >= threshold) {
-                    basePrice = basePricing[threshold];
-                }
-            }
-
-            // Apply multipliers
-            const eventMultiplier = eventTypeMultipliers[eventType] || 1.0;
-            const packageMultiplier = packageMultipliers[packageType] || 1.0;
-            
-            const finalPrice = Math.round(basePrice * eventMultiplier * packageMultiplier);
-            
-            // Display result
-            document.getElementById('finalPrice').textContent = `KSH ${finalPrice.toLocaleString()}`;
-            document.getElementById('packageIncludes').innerHTML = `
-                <h4>Your ${packageType.charAt(0).toUpperCase() + packageType.slice(1)} Package Includes:</h4>
-                <ul style="text-align: left; margin: 10px 0;">
-                    ${packageInclusions[packageType].map(item => `<li><i class="fas fa-check" style="color: #d4af37; margin-right: 8px;"></i>${item}</li>`).join('')}
-                </ul>
-            `;
-            document.getElementById('priceResult').style.display = 'block';
-        }
-
-        // Event listeners
-        document.getElementById('priceCalculator').addEventListener('submit', function(e) {
-            e.preventDefault();
-            calculatePrice();
-        });
-
-        // Update price on input change
-        document.getElementById('guestCount').addEventListener('input', calculatePrice);
-        document.getElementById('eventType').addEventListener('change', calculatePrice);
-        document.getElementById('packageType').addEventListener('change', calculatePrice);
-
-        // Book now function
-        function bookNow() {
-            const phone = "+254700000000"; // Replace with actual phone number
-            const message = "Hi! I'd like to book Kings Services for my event. I got a quote from your website.";
-            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
-        }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Set minimum date to today
-        document.getElementById('eventDate').min = new Date().toISOString().split('T')[0];
-    </script>
-</body>
-</html>
