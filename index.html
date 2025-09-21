@@ -186,6 +186,26 @@
             background: #f9f9f9;
             border-radius: 10px;
             border-left: 5px solid #D6B380;
+            color: #000;
+        }
+
+        .package-details h4 {
+            color: #000 !important;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .package-details ul {
+            color: #000 !important;
+        }
+
+        .package-details li {
+            color: #000 !important;
+            margin-bottom: 8px;
+        }
+
+        .package-details p {
+            color: #000 !important;
         }
 
         .nav {
@@ -301,6 +321,158 @@
         .nav-links.mobile-open a:hover {
             background-color: #D6B380;
             color: white;
+        }
+
+        /* MC Section Styles */
+        .mc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .mc-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .mc-card:hover {
+            transform: translateY(-10px);
+            border-color: #D6B380;
+        }
+
+        .mc-image {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .mc-icon {
+            font-size: 3.5rem;
+            color: #D6B380;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mc-info h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .mc-qualification {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            background: linear-gradient(135deg, #D6B380, #c4a066);
+            color: white;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .mc-qualification i {
+            color: #fff;
+        }
+
+        .mc-specialties {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .mc-specialties li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .mc-specialties i {
+            color: #D6B380;
+            font-size: 0.8rem;
+        }
+
+        .mc-pricing {
+            border-top: 2px solid #e0e0e0;
+            padding-top: 20px;
+        }
+
+        .price-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .price-option:last-child {
+            border-bottom: none;
+        }
+
+        .duration {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #D6B380;
+        }
+
+        .mc-booking-info {
+            margin-top: 50px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 20px;
+            padding: 40px;
+            border-left: 5px solid #D6B380;
+        }
+
+        .booking-note h4 {
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3rem;
+        }
+
+        .booking-note i {
+            color: #D6B380;
+        }
+
+        .booking-note ul {
+            list-style: none;
+        }
+
+        .booking-note li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .booking-note li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #D6B380;
+            font-weight: bold;
         }
 
         .section {
@@ -538,6 +710,27 @@
             .contact-icon {
                 font-size: 2rem;
             }
+            
+            .mc-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .mc-card {
+                padding: 20px;
+            }
+            
+            .mc-icon {
+                font-size: 2.5rem;
+                width: 80px;
+                height: 80px;
+                padding: 20px;
+            }
+            
+            .mc-booking-info {
+                padding: 25px 20px;
+                margin-top: 30px;
+            }
         }
         
         /* Large phones - 481px to 768px */
@@ -604,6 +797,11 @@
             .contact-info {
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
                 gap: 30px;
+            }
+            
+            .mc-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
             }
         }
         
@@ -867,6 +1065,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#equipment">Equipment</a></li>
+                    <li><a href="#mcs">MCs</a></li>
                     <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -1092,6 +1291,147 @@
                 <div class="equipment-item">
                     <h4><i class="fas fa-microphone-alt"></i> Audio Cables</h4>
                     <p>3 Snake Cables<br>50 Meters Each<br>Premium Connectivity</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MCs Section -->
+    <section class="section" id="mcs">
+        <div class="container">
+            <div class="section-header">
+                <h2>Professional Masters of Ceremony</h2>
+                <p>Experienced MCs to elevate your event with style and professionalism</p>
+            </div>
+            
+            <div class="mc-grid">
+                <div class="mc-card">
+                    <div class="mc-image">
+                        <i class="fas fa-microphone-alt mc-icon"></i>
+                    </div>
+                    <div class="mc-info">
+                        <h3>James Kiprotich</h3>
+                        <div class="mc-qualification">
+                            <i class="fas fa-star"></i>
+                            <span>Senior MC - 8+ Years Experience</span>
+                        </div>
+                        <ul class="mc-specialties">
+                            <li><i class="fas fa-check"></i> Corporate Events & Conferences</li>
+                            <li><i class="fas fa-check"></i> Award Ceremonies</li>
+                            <li><i class="fas fa-check"></i> Product Launches</li>
+                            <li><i class="fas fa-check"></i> Bilingual (English/Swahili)</li>
+                        </ul>
+                        <div class="mc-pricing">
+                            <div class="price-option">
+                                <span class="duration">2-Hour Event</span>
+                                <span class="price">KSH 8,000</span>
+                            </div>
+                            <div class="price-option">
+                                <span class="duration">Full Day Event</span>
+                                <span class="price">KSH 30,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mc-card">
+                    <div class="mc-image">
+                        <i class="fas fa-microphone mc-icon"></i>
+                    </div>
+                    <div class="mc-info">
+                        <h3>Sarah Wanjiku</h3>
+                        <div class="mc-qualification">
+                            <i class="fas fa-star"></i>
+                            <span>Wedding & Social Events Specialist - 6 Years</span>
+                        </div>
+                        <ul class="mc-specialties">
+                            <li><i class="fas fa-check"></i> Weddings & Engagement Parties</li>
+                            <li><i class="fas fa-check"></i> Birthday Celebrations</li>
+                            <li><i class="fas fa-check"></i> Social Gatherings</li>
+                            <li><i class="fas fa-check"></i> Youth Events</li>
+                        </ul>
+                        <div class="mc-pricing">
+                            <div class="price-option">
+                                <span class="duration">2-Hour Event</span>
+                                <span class="price">KSH 7,000</span>
+                            </div>
+                            <div class="price-option">
+                                <span class="duration">Full Day Event</span>
+                                <span class="price">KSH 28,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mc-card">
+                    <div class="mc-image">
+                        <i class="fas fa-bullhorn mc-icon"></i>
+                    </div>
+                    <div class="mc-info">
+                        <h3>David Ochieng</h3>
+                        <div class="mc-qualification">
+                            <i class="fas fa-star"></i>
+                            <span>Entertainment & Party MC - 5 Years</span>
+                        </div>
+                        <ul class="mc-specialties">
+                            <li><i class="fas fa-check"></i> Club Events & Parties</li>
+                            <li><i class="fas fa-check"></i> Music Concerts</li>
+                            <li><i class="fas fa-check"></i> DJ Events</li>
+                            <li><i class="fas fa-check"></i> High Energy Entertainment</li>
+                        </ul>
+                        <div class="mc-pricing">
+                            <div class="price-option">
+                                <span class="duration">2-Hour Event</span>
+                                <span class="price">KSH 6,000</span>
+                            </div>
+                            <div class="price-option">
+                                <span class="duration">Full Day Event</span>
+                                <span class="price">KSH 26,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mc-card">
+                    <div class="mc-image">
+                        <i class="fas fa-podcast mc-icon"></i>
+                    </div>
+                    <div class="mc-info">
+                        <h3>Grace Nyambura</h3>
+                        <div class="mc-qualification">
+                            <i class="fas fa-star"></i>
+                            <span>Emerging MC - 2 Years Experience</span>
+                        </div>
+                        <ul class="mc-specialties">
+                            <li><i class="fas fa-check"></i> Small Events & Gatherings</li>
+                            <li><i class="fas fa-check"></i> Community Events</li>
+                            <li><i class="fas fa-check"></i> School Functions</li>
+                            <li><i class="fas fa-check"></i> Budget-Friendly Option</li>
+                        </ul>
+                        <div class="mc-pricing">
+                            <div class="price-option">
+                                <span class="duration">2-Hour Event</span>
+                                <span class="price">KSH 5,000</span>
+                            </div>
+                            <div class="price-option">
+                                <span class="duration">Full Day Event</span>
+                                <span class="price">KSH 25,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mc-booking-info">
+                <div class="booking-note">
+                    <h4><i class="fas fa-info-circle"></i> MC Booking Information</h4>
+                    <ul>
+                        <li>All MCs include event planning consultation</li>
+                        <li>Custom scripts and event flow preparation</li>
+                        <li>Professional attire and presentation</li>
+                        <li>Backup MC available for full-day events</li>
+                        <li>50% deposit required, 50% due on event day</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -1326,12 +1666,12 @@
             
             const packageDetails = document.getElementById('packageIncludes');
             packageDetails.innerHTML = `
-                <h4>Package Includes:</h4>
-                <ul style="text-align: left; margin-top: 10px;">
-                    ${inclusions.map(item => `<li>${item}</li>`).join('')}
+                <h4 style="color: #000 !important;">Package Includes:</h4>
+                <ul style="text-align: left; margin-top: 10px; color: #000 !important;">
+                    ${inclusions.map(item => `<li style="color: #000 !important;">${item}</li>`).join('')}
                 </ul>
-                <p style="margin-top: 15px; font-size: 0.9em; opacity: 0.8;">
-                    <strong>Event Details:</strong><br>
+                <p style="margin-top: 15px; font-size: 0.9em; color: #000 !important;">
+                    <strong style="color: #000 !important;">Event Details:</strong><br>
                     ${guests} guests • ${eventType} event • ${venue}<br>
                     Location: ${eventLocation} • Date: ${eventDate}
                 </p>
