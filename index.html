@@ -1313,12 +1313,14 @@
                         <h3>James Kiprotich</h3>
                         <div class="mc-qualification">
                             <i class="fas fa-star"></i>
-                            <span>Senior MC - 8+ Years Experience</span>
+                            <span>Senior MC - 10+ Years Experience</span>
                         </div>
                         <ul class="mc-specialties">
                             <li><i class="fas fa-check"></i> Corporate Events & Conferences</li>
                             <li><i class="fas fa-check"></i> Award Ceremonies</li>
                             <li><i class="fas fa-check"></i> Product Launches</li>
+                            <li><i class="fas fa-check"></i> Excellent crowd engagement</li>
+                            <li><i class="fas fa-check"></i> Dynamic and energetic style</li>
                             <li><i class="fas fa-check"></i> Bilingual (English/Swahili)</li>
                         </ul>
                         <div class="mc-pricing">
@@ -1419,6 +1421,67 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- MC Pricing Calculator -->
+            <div class="pricing-calculator" style="margin-top: 40px;">
+                <div class="calc-header">
+                    <h2><i class="fas fa-microphone"></i> MC Price Calculator</h2>
+                    <p>Get instant pricing for our Master of Ceremony services</p>
+                </div>
+                
+                <form id="mcPriceCalculator">
+                    <div class="form-group">
+                        <label for="mcEventType">Event Type</label>
+                        <select id="mcEventType" required>
+                            <option value="">Select event type</option>
+                            <option value="corporate">Corporate/Conference</option>
+                            <option value="wedding">Wedding/Social</option>
+                            <option value="entertainment">Entertainment/Party</option>
+                            <option value="community">Community/School Event</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mcDuration">Event Duration</label>
+                        <select id="mcDuration" required>
+                            <option value="">Select duration</option>
+                            <option value="2-hours">2 Hours</option>
+                            <option value="4-hours">4 Hours</option>
+                            <option value="6-hours">6 Hours</option>
+                            <option value="full-day">Full Day (8+ Hours)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mcExperience">Preferred MC Experience Level</label>
+                        <select id="mcExperience" required>
+                            <option value="">Select experience level</option>
+                            <option value="emerging">Emerging (2 years) - Budget Friendly</option>
+                            <option value="entertainment">Entertainment Specialist (5 years)</option>
+                            <option value="wedding">Wedding Specialist (6 years)</option>
+                            <option value="senior">Senior MC (10+ years)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mcEventDate">Event Date</label>
+                        <input type="date" id="mcEventDate" required>
+                    </div>
+                    
+                    <button type="submit" class="book-now-btn">
+                        <i class="fas fa-calculator"></i> Calculate MC Price
+                    </button>
+                </form>
+                
+                <div id="mcPriceResult" class="price-display" style="display: none;">
+                    <div class="price-amount" id="mcFinalPrice">KSH 0</div>
+                    <p>Total MC Service Cost</p>
+                    <div class="package-details" id="mcServiceIncludes"></div>
+                    <button type="button" class="book-now-btn" onclick="bookMC()">
+                        <i class="fas fa-phone"></i> Book MC - Call Us
+                    </button>
                 </div>
             </div>
 
@@ -1764,6 +1827,140 @@ I got this quote from your website and would like to proceed with booking.`;
                 mobileMenuBtn.setAttribute('aria-expanded', 'false');
             }
         });
+
+        // MC Pricing Calculator Logic
+        const mcPrices = {
+            'emerging': {
+                '2-hours': 5000,
+                '4-hours': 10000,
+                '6-hours': 18000,
+                'full-day': 25000
+            },
+            'entertainment': {
+                '2-hours': 6000,
+                '4-hours': 12000,
+                '6-hours': 20000,
+                'full-day': 26000
+            },
+            'wedding': {
+                '2-hours': 7000,
+                '4-hours': 14000,
+                '6-hours': 22000,
+                'full-day': 28000
+            },
+            'senior': {
+                '2-hours': 8000,
+                '4-hours': 16000,
+                '6-hours': 24000,
+                'full-day': 30000
+            }
+        };
+
+        const mcServices = {
+            'emerging': [
+                "Professional event hosting",
+                "Basic event script preparation",
+                "Crowd interaction and engagement",
+                "Professional attire",
+                "Punctual and reliable service"
+            ],
+            'entertainment': [
+                "High-energy event hosting",
+                "Custom entertainment scripts",
+                "Excellent crowd engagement",
+                "Music event coordination",
+                "Professional sound system operation",
+                "Dynamic and energetic style"
+            ],
+            'wedding': [
+                "Romantic event coordination",
+                "Wedding ceremony hosting",
+                "Reception entertainment",
+                "Guest interaction expertise",
+                "Professional wedding attire",
+                "Excellent crowd engagement"
+            ],
+            'senior': [
+                "Premium corporate hosting",
+                "Executive event management",
+                "Professional presentation skills",
+                "10+ years of experience",
+                "Bilingual capabilities (English/Swahili)",
+                "Excellent crowd engagement",
+                "Dynamic and energetic style",
+                "Complete event consultation"
+            ]
+        };
+
+        // MC Calculator form handler
+        document.getElementById('mcPriceCalculator').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const eventType = document.getElementById('mcEventType').value;
+            const duration = document.getElementById('mcDuration').value;
+            const experience = document.getElementById('mcExperience').value;
+            const eventDate = document.getElementById('mcEventDate').value;
+            
+            // Validation
+            if (!eventType || !duration || !experience || !eventDate) {
+                alert('Please fill in all fields to get your MC quote.');
+                return;
+            }
+            
+            const price = mcPrices[experience][duration];
+            const services = mcServices[experience];
+            
+            // Display results
+            document.getElementById('mcFinalPrice').textContent = `KSH ${price.toLocaleString()}`;
+            
+            const serviceDetails = document.getElementById('mcServiceIncludes');
+            serviceDetails.innerHTML = `
+                <h4 style="color: #000 !important;">MC Service Includes:</h4>
+                <ul style="text-align: left; margin-top: 10px; color: #000 !important;">
+                    ${services.map(service => `<li style="color: #000 !important;">${service}</li>`).join('')}
+                </ul>
+                <p style="margin-top: 15px; font-size: 0.9em; color: #000 !important;">
+                    <strong style="color: #000 !important;">Service Details:</strong><br>
+                    Event: ${eventType} • Duration: ${duration} • Date: ${eventDate}<br>
+                    Experience Level: ${experience} MC
+                </p>
+            `;
+            
+            document.getElementById('mcPriceResult').style.display = 'block';
+            
+            // Scroll to results
+            document.getElementById('mcPriceResult').scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        });
+
+        // Book MC function
+        function bookMC() {
+            const phone = '+254791276880';
+            const eventType = document.getElementById('mcEventType').value;
+            const duration = document.getElementById('mcDuration').value;
+            const experience = document.getElementById('mcExperience').value;
+            const eventDate = document.getElementById('mcEventDate').value;
+            const price = document.getElementById('mcFinalPrice').textContent;
+            
+            const message = `Hi Kings Services, I would like to book an MC for my event.
+
+MC Service Details:
+- Event Type: ${eventType}
+- Duration: ${duration}
+- Experience Level: ${experience}
+- Date: ${eventDate}
+- Quoted Price: ${price}
+
+I got this quote from your website and would like to proceed with booking.`;
+            
+            const whatsappUrl = `https://wa.me/${phone.replace('+', '')}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Set minimum date for MC booking
+        document.getElementById('mcEventDate').min = new Date().toISOString().split('T')[0];
     </script>
 </body>
 </html>
