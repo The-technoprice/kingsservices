@@ -806,3 +806,90 @@
                 "4 wireless microphones",
                 "Allen Heath professional mixer",
                 "Stage monitors included",
+                "Professional sound engineer",
+                "Complete setup & breakdown",
+                "Technical support throughout event"
+            ],
+            deluxe: [
+                "Premium sound system with subwoofers",
+                "8 wireless microphones",
+                "Professional mixing console",
+                "Stage monitors & floor monitors",
+                "Dedicated sound engineer",
+                "Live audio recording option",
+                "Lighting effects coordination",
+                "Complete event audio management",
+                "Priority booking & support"
+            ]
+        };
+
+        // Function to calculate pricing
+        function calculatePrice() {
+            const guestCount = document.getElementById('guestCount').value;
+            const eventType = document.getElementById('eventType').value;
+            const packageType = document.getElementById('packageType').value;
+            
+            if (!guestCount || !eventType || !packageType) {
+                return;
+            }
+
+            // Find base price based on guest count
+            let basePrice = 0;
+            const guests = parseInt(guestCount);
+            
+            for (let threshold of Object.keys(basePricing).map(Number).sort((a, b) => a - b)) {
+                if (guests >= threshold) {
+                    basePrice = basePricing[threshold];
+                }
+            }
+
+            // Apply multipliers
+            const eventMultiplier = eventTypeMultipliers[eventType] || 1.0;
+            const packageMultiplier = packageMultipliers[packageType] || 1.0;
+            
+            const finalPrice = Math.round(basePrice * eventMultiplier * packageMultiplier);
+            
+            // Display result
+            document.getElementById('finalPrice').textContent = `KSH ${finalPrice.toLocaleString()}`;
+            document.getElementById('packageIncludes').innerHTML = `
+                <h4>Your ${packageType.charAt(0).toUpperCase() + packageType.slice(1)} Package Includes:</h4>
+                <ul style="text-align: left; margin: 10px 0;">
+                    ${packageInclusions[packageType].map(item => `<li><i class="fas fa-check" style="color: #d4af37; margin-right: 8px;"></i>${item}</li>`).join('')}
+                </ul>
+            `;
+            document.getElementById('priceResult').style.display = 'block';
+        }
+
+        // Event listeners
+        document.getElementById('priceCalculator').addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculatePrice();
+        });
+
+        // Update price on input change
+        document.getElementById('guestCount').addEventListener('input', calculatePrice);
+        document.getElementById('eventType').addEventListener('change', calculatePrice);
+        document.getElementById('packageType').addEventListener('change', calculatePrice);
+
+        // Book now function
+        function bookNow() {
+            const phone = "+254700000000"; // Replace with actual phone number
+            const message = "Hi! I'd like to book Kings Services for my event. I got a quote from your website.";
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Set minimum date to today
+        document.getElementById('eventDate').min = new Date().toISOString().split('T')[0];
+    </script>
+</body>
+</html>
