@@ -911,11 +911,38 @@
             const guests = parseInt(document.getElementById('guestCount').value);
             const eventType = document.getElementById('eventType').value;
             const packageType = document.getElementById('packageType').value;
+            const eventLocation = document.getElementById('eventLocation').value;
             const eventDate = document.getElementById('eventDate').value;
-            const venue = document.getElementById('specificVenue').value;
+            const venue = document.getElementById('specificVenue').value.trim();
             
-            if (!guests || !eventType || !packageType || !eventDate || !venue) {
-                alert('Please fill in all fields to get your quote.');
+            // Validation
+            if (!guests || guests < 20 || guests > 2500) {
+                alert('Please enter a valid number of guests between 20 and 2500.');
+                return;
+            }
+            
+            if (!eventType) {
+                alert('Please select an event type.');
+                return;
+            }
+            
+            if (!packageType) {
+                alert('Please select a package type.');
+                return;
+            }
+            
+            if (!eventLocation) {
+                alert('Please select an event location.');
+                return;
+            }
+            
+            if (!venue) {
+                alert('Please enter a specific venue or ground name.');
+                return;
+            }
+            
+            if (!eventDate) {
+                alert('Please select an event date.');
                 return;
             }
             
@@ -934,11 +961,17 @@
                 <p style="margin-top: 15px; font-size: 0.9em; opacity: 0.8;">
                     <strong>Event Details:</strong><br>
                     ${guests} guests • ${eventType} event • ${venue}<br>
-                    Date: ${eventDate}
+                    Location: ${eventLocation} • Date: ${eventDate}
                 </p>
             `;
             
             document.getElementById('priceResult').style.display = 'block';
+            
+            // Scroll to results
+            document.getElementById('priceResult').scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
         });
 
         // Book now function
